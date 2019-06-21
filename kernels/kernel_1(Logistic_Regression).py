@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-dataset = pd.read_csv('train.csv')
+dataset = pd.read_csv('../dataset/train.csv')
 
 dataset_1 = dataset.iloc[:, [0,1,2,3,4,5,6,7,9,11]]
 
@@ -51,7 +51,7 @@ classifier = LogisticRegression()
 classifier.fit(X_1, y_1)
 
 # Predicting the results
-test_set = pd.read_csv('test.csv')
+test_set = pd.read_csv('../dataset/test.csv')
 
 test_set_1 = test_set.iloc[:, [0,1,2,3,4,5,6,8,10]]
 
@@ -87,3 +87,4 @@ pred = pd.DataFrame(data = pred, columns = ['PassengerId', 'Survived'])
 pred.to_csv('Passengers_Survived.csv')
 
 # accuracy (on training set) = 80.2%
+# accuracy (on test set) = 75.6%
