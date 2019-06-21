@@ -46,8 +46,8 @@ sc_X = StandardScaler()
 X_1 = sc_X.fit_transform(X_1)
 
 # Using Linear Regression
-from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression()
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
 classifier.fit(X_1, y_1)
 
 # Predicting the results
@@ -84,7 +84,7 @@ pred = test_set_1.iloc[:, 0:2].values
 pred[:, 1] = y_pred
 
 pred = pd.DataFrame(data = pred, columns = ['PassengerId', 'Survived'])
-pred.to_csv('../results/Passengers_Survived_SimpleLogReg.csv', index = False)
+pred.to_csv('../results/Passengers_Survived_GaussianNB.csv', index = False)
 
-# accuracy (on training set) = 80.2%
-# accuracy (on test set) = 75.6%
+# accuracy (on training set) = ~75%
+# accuracy (on test set) = 71.77%
